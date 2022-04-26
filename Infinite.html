@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      #item-list {
+        width: 400px;
+        height: 600px;
+        overflow: auto;
+        margin: auto;
+        margin-top: 40px;
+
+        padding: 20px;
+        border: 10px solid rgb(224, 189, 32);
+        background-color: rgb(78, 104, 126);
+      }
+
+      li {
+        padding: 10px;
+        list-style-type: none;
+        color: white;
+        font-weight: bold;
+      }
+      body {
+        background-color: rgb(174, 235, 31);
+      }
+    </style>
+  </head>
+  <body>
+    <ul id="item-list"></ul>
+  </body>
+</html>
+
+<script>
+  var list = document.querySelector("#item-list");
+
+  var count = 1;
+  var Dataload = function () {
+    for (var i = 0; i < 25; i++) {
+      var item = document.createElement("li");
+      item.innerText = "Masai Student " + count++;
+      list.appendChild(item);
+    }
+  };
+
+  list.addEventListener("scroll", function () {
+    if (list.scrollTop + list.clientHeight >= list.scrollHeight) {
+      Dataload();
+    }
+  });
+
+  Dataload();
+</script>
